@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mie Ayam Kungfu</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.5;
+            background-color: #e671a8;
+            color: #991064;
+        }
+
+        header {
+            background-color: #a01a6d;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        header .logo {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        header nav ul {
+            list-style: none;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        header nav ul li {
+            display: inline-block;
+            margin-left: 20px;
+        }
+
+        header nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        main {
+            padding: 2rem;
+        }
+
+        .hero img {
+            width: 100%;
+            height: auto;
+            max-height: 500px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        #products {
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        #products h2 {
+            margin-bottom: 1rem;
+        }
+
+        .product-list {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .product {
+            background-color: #78B3CE;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            padding: 1rem;
+            text-align: center;
+            width: 200px;
+            margin-bottom: 20px;
+        }
+
+        .product img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .product h3 {
+            font-size: 1.2rem;
+            margin: 10px 0;
+        }
+
+        .product p {
+            font-size: 0.9rem;
+            color: #8a1659;
+            margin-bottom: 10px;
+        }
+
+        button.add-to-cart {
+            background-color: #479fda;
+            color: white;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button.add-to-cart:hover {
+            background-color: #477cc0;
+        }
+
+        .cart-list {
+            padding: 1rem;
+        }
+
+        #total-price {
+            font-size: 1.5rem;
+            margin-top: 20px;
+        }
+
+        #buy-button {
+            background-color: #007bff;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: none;
+        }
+
+        #buy-button:hover {
+            background-color: #0056b3;
+        }
+
+        footer {
+            text-align: center;
+            background-color: #d8289d;
+            color: white;
+            padding: 1rem;
+            margin-top: 20px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Mie Ayam Kungfu</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#products">Produk</a></li>
+                <li><a href="index.html#cart">Keranjang</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <img src="img/Banner (2).png" alt="Banner Mie Ayam Kungfu">
+        </section>
+
+        <section id="products">
+            <h2>Daftar Produk</h2>
+            <div class="product-list">
+                <div class="product">
+                    <img src="img/cara-membuat-mie-ayam-4.jpg" alt="Mie Ayam Bakso">
+                    <h3>Mie Ayam Bakso</h3>
+                    <p>Rp. 12.000</p>
+                    <button class="add-to-cart" data-product="Mie Ayam Bakso" data-price="12000">Tambah ke Keranjang</button>
+                </div>
+                <div class="product">
+                    <img src="img/a4b7d013-9438-46b2-906b-4c374ec82236.jpg" alt="Mie Ayam Special">
+                    <h3>Mie Ayam Special</h3>
+                    <p>Rp. 15.000</p>
+                    <button class="add-to-cart" data-product="Mie Ayam Special" data-price="15000">Tambah ke Keranjang</button>
+                </div>
+                <div class="product">
+                    <img src="img/CMvqtCKUxrMBbPCQ09CtypnobrGJ5b50-31363234373635373931d41d8cd98f00b204e9800998ecf8427e.webp" alt="Mie Ayam Ceker">
+                    <h3>Mie Ayam Ceker</h3>
+                    <p>Rp. 13.000</p>
+                    <button class="add-to-cart" data-product="Mie Ayam Ceker" data-price="13000">Tambah ke Keranjang</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="cart">
+            <h2>Keranjang Belanja</h2>
+            <div class="cart-list">
+                <ul id="cart-items">
+                    <!-- Produk akan ditambahkan disini menggunakan JavaScript -->
+                </ul>
+                <div id="total-price">
+                    Total: Rp <span>0</span>
+                </div>
+                <button id="buy-button" onclick="buyNow()">Beli</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Online Shop. Semua hak dilindungi.</p>
+    </footer>
+
+    <script>
+        const addToCartButtons = document.querySelectorAll('.add-to-cart');
+        const cartItemsList = document.getElementById('cart-items');
+        const totalPriceElement = document.getElementById('total-price').querySelector('span');
+        const buyButton = document.getElementById('buy-button');
+
+        let cart = [];
+
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                const productName = e.target.dataset.product;
+                const productPrice = parseInt(e.target.dataset.price);
+
+                cart.push({ name: productName, price: productPrice });
+                updateCart();
+            });
+        });
+
+        function updateCart() {
+            cartItemsList.innerHTML = '';
+
+            let total = 0;
+
+            cart.forEach(item => {
+                const listItem = document.createElement('li');
+                listItem.textContent = `${item.name} - Rp ${item.price.toLocaleString()}`;
+                cartItemsList.appendChild(listItem);
+
+                total += item.price;
+            });
+
+            totalPriceElement.textContent = total.toLocaleString();
+
+            if (cart.length > 0) {
+                buyButton.style.display = 'block';
+            } else {
+                buyButton.style.display = 'none';
+            }
+        }
+
+        function buyNow() {
+            if (cart.length > 0) {
+                const message = generateOrderMessage();
+                const whatsappLink = `https://wa.me/6285174107894?text=${encodeURIComponent(message)}`;
+                window.location.href = whatsappLink;
+            } else {
+                alert("Keranjang Anda kosong.");
+            }
+        }
+
+        function generateOrderMessage() {
+            let message = "Halo, saya ingin membeli produk:(Isi Dengan Nama Produk)";
+            cart.forEach(item => {
+                message += `${item.name} - Rp ${item.price.toLocaleString()}\n`;
+            });
+            message += `\nTotal: Rp ${totalPriceElement.textContent}`;
+            return message;
+        }
+    </script>
+
+</body>
+</html>
